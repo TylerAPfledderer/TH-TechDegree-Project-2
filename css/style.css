@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Raleway&display=swap');
+
+/* General and Group Selectors */
+
+body {
+    font-family: Raleway, Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    background-color: #eeeeee;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Oswald, sans-serif;
+}
+
+h1,
+h2 {
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0;
+    letter-spacing: 3px;
+}
+
+h2:not(.contact__headline),
+h3 {
+    color: #393e46;
+}
+
+h2 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+a:hover {
+    color: slategrey;
+}
+
+.main-nav__link,
+.footer-nav__link {
+    font-weight: bold;
+}
+
+.container {
+    padding: 0 20px;
+    text-align: center;
+    max-width: 500px; /* For screen sizes less than 768px. Turn off in the next media query. */
+    margin: 0 auto;
+}
+
+header,
+footer {
+    background-color: #222831;
+    color: #eee;
+}
+
+/*-------------------------------
+------------- Header ------------
+-------------------------------*/
+
+header {
+    padding-bottom: 20px;
+}
+
+.main-nav {
+    padding-bottom: 5px;
+}
+
+.main-nav__title {
+    padding: 5px 0;
+}
+
+.main-nav__link {
+    display: block;
+    padding: 10px 15px;
+    color: #00adb5;
+}
+
+.main-nav__list {
+    margin-top: 5px;
+}
+
+.main-nav__item {
+    background-color: #393e46;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 367px;
+}
+
+.intro-p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+/*-------------------------------
+----------- Main Content --------
+-------------------------------*/
+
+/* Portfolio Section */
+
+.portfolio__headline {
+    margin: 40px 0;
+}
+
+.portfolio-card__img {
+    width: 100%;
+}
+
+.portfolio-card__text {
+    margin-bottom: 2em;
+}
+
+/* Skills Section */
+
+#skills {
+    border-top: 2px solid #f5f5f5;
+}
+
+.skills__list {
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 30px;
+    display: flex
+    text-align: center;
+}
+
+.skills__item {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.skills__item:not(:last-of-type) {
+    margin-right: 20px;
+}
+
+/*-------------------------------
+------------- Footer ------------
+-------------------------------*/
+
+footer {
+    padding-top: 20px;
+}
+
+.contact__headline {
+    margin-top: 0;
+}
+
+.contact-list__info:first-of-type {
+    margin-bottom: 10px;
+}
+
+.contact-list__link {
+    font-weight: bold;
+    margin-left: 10px;
+    letter-spacing: 1px;
+}
+
+.bottom-header {
+    border-top: 2px solid #eee;
+    padding: 15px 0 10px;
+    margin-top: 20px;
+}
+
+.bottom-header__title,
+.bottom-header__to-top {
+    font-family: Oswald, sans-serif;
+    display: block;
+}
+
+.bottom-header__title {
+    float: left;
+    font-weight: bold;
+    padding-left: 10px;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    line-height: 1em;
+}
+
+.bottom-header__to-top {
+    float: right;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 10px 0; /* Meets with the nesting <a>'s padding Top/Bottom to stay in line with the .title-footer */
+}
+
+.bottom-header__title,
+.bottom-header__to-top--link {
+    padding: 10px 15px; /* Provide space to better select the link on touch screens */
+}
+
+.footer-nav {
+    display: none; /* Applied only for mobile devices, with the "Back to Top" link displaying instead on larger screens */
+}
+
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/*-------------------------------
+---------- Media Queries --------
+-------------------------------*/
+
+
+/* Stylings for screen sizes 768px - 1023px (Tablets) */
+@media (min-width: 768px) {
+
+    .container {
+        width: 90%;
+        max-width: none;
+        padding: 0;
+        margin: 0 auto;
+    }
+    
+    header {
+        padding-top: 20px;
+    }
+
+    .main-nav__item {
+        background: none;
+        display: inline-block;
+    }
+
+    .profile-img {
+        float: right;
+        margin-top: 16px; /* Line up with .intro-p's default margin */
+        width: 40%;
+        max-width: none;
+    }
+
+    .intro-p {
+        float: left;
+        font-size: 1.2em;
+        line-height: 2;
+        padding-right: 20px;
+        text-align: left;
+        width: 60%;
+    }
+    
+    .portfolio-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .portfolio-card {
+        flex-basis: 50%;
+        display: inline-block;
+        padding: 0 5px;
+    }
+
+    .bottom-header__to-top {
+        display: none; /* Only shown in Mobile Device Sizes */
+    }
+
+    .footer-nav {
+        display: block;
+        float: right;
+    }
+
+    .footer-nav__item {
+        display: inline-block;
+        padding: 10px 0;
+    }
+
+    .footer-nav__link {
+        padding: 10px 15px; /* Provide space to better select the link on touch screens */
+    }
+
+}
+
+/* Styling for screen sizes 1024px and up (Desktop) */
+@media (min-width: 1024px) {
+
+    .container {
+        width: 80%;
+        max-width: 1024px;
+    }
+
+    .main-nav__title {
+        float: left;
+    }
+
+    .main-nav__list {
+        float: right;
+    }
+    
+    .portfolio-card {
+        flex-basis: 33%;
+    }
+
+}

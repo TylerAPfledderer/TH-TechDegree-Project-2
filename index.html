@@ -4,76 +4,107 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mobile First Portfolio Project</title>
-
+        <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
         <header>
-            <h1 class="title">Student Name</h1><!-- Could this be better suited inside the <nav>? -->
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <p class="intro-p">Hi! I'm a front-end developer who loves responsive design and CSS. I recently finished learning front-end web development at Treehouse and am excited to put all my skills to use!</p>
-            <img src="images/responsive-layout-profile.png" alt="Profile Image" class="profile-img">
-        </header>
-        <main>
-            <section id="portfolio"><!-- All of the containers showing previews of each portfolio -->
-                <h2>Portfolio</h2>
-                <div class="portfolio-card">
-                    <h3>Marketing Page</h3>
-                    <img src="images/portfolio-1.png" alt="Preview Image of the Marketing Page">
-                    <p>This project shows the front page of a marketing website meant for a specific business I'm interested in.</p>
-                </div>
-                <div class="portfolio-card">
-                    <h3>Search Page</h3>
-                    <img src="images/portfolio-2.png" alt="Preview Image of the Search Page">
-                    <p>This project searches through a specific database to find information that the user is trying to look up.</p>
-                </div>
-                <div class="portfolio-card">
-                    <h3>Travel App</h3>
-                    <img src="images/portfolio-3.png" alt="Preview Image of the Travel App">
-                    <p>This project compares travel times based on different transportation methods and tells you the best one.</p>
-                </div>
-                <div class="portfolio-card">
-                    <h3>Maps of Favorite Spots</h3>
-                    <img src="images/portfolio-4.png" alt="Preview Image of Maps of Favorite Spots Site">
-                    <p>This project uses mapping apis to plot points for my favorite spots in the city for a do-it-yourself walking tour.</p>
-                </div>
-                <div class="portfolio-card">
-                    <h3>Photo Gallery</h3>
-                    <img src="images/portfolio-5.png" alt="Preview Image of Photo Gallery Site">
-                    <p>This project shows pictures from a recent trip to the viewer and allows them to easily navigate through photos.</p>
-                </div>
-                <div class="portfolio-card">
-                    <h3>Calculator</h3>
-                    <img src="images/portfolio-6.png" alt="Preview Image of Calculator App">
-                    <p>Someone can enter in the numbers they want, and press the big blue button and get the result.</p>
-                </div>
-            </section>
-            <section id="contact"><!-- Basic contact statement and information -->
-                <h2>Contact</h2>
-                <p>If you're interested in chatting or want more information about what I've been working on, I'd love to here from you!</p>
-                <ul>
-                    <li><span class="contact-opt-title">Phone</span>+1&nbsp;(111)555-1234</li>
-                    <li><span class="contact-opt-title">Email</span>email@yoursite.com</li>
-                </ul>
-            </section>
-            <footer><!-- Smaller Nav bar similar to the Nav at the very top of the page -->
-                <span class="title-footer">Student Name</span>
-                <span class="footer-mobile-only">Back to Top</span><!-- This only appears when screen size is less than 768px -->
-                <nav class="not-mobile nav-footer"><!-- This does not appear when screen size is less than 768px -->
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
+            <div class="container clearfix">
+                <nav class="main-nav clearfix">
+                    <h1 class="main-nav__title">Tyler Pfledderer</h1><!-- Could this be better suited inside the <nav>? -->
+                    <ul class="main-nav__list">
+                        <li class="main-nav__item"><a href="#" class="main-nav__link">Home</a></li>
+                        <li class="main-nav__item"><a href="#portfolio" class="main-nav__link">Portfolio</a></li>
+                        <li class="main-nav__item"><a href="#skills" class="main-nav__link">Skills</a></li>
+                        <li class="main-nav__item"><a href="#contact" class="main-nav__link">Contact</a></li>
                     </ul>
-                </nav>
-            </footer>
+                </nav><!-- End .main-nav -->
+                <img src="images/responsive-layout-profile.png" alt="Profile Image" class="profile-img">
+                <p class="intro-p">Hi! I'm a front-end developer who loves responsive design and CSS. I recently finished learning front-end web development at Treehouse and am excited to put all my skills to use!</p>
+            </div>
+        </header>
+        <main class="container">
+            <section id="portfolio"><!-- All of the content showing previews of each portfolio -->
+                <h2 class="portfolio__headline">Portfolio</h2>
+                <div class="portfolio-flex">                
+                    <div class="portfolio-card">
+                        <img src="images/portfolio-1.png" alt="Preview Image of the Marketing Page" class="portfolio-card__img">
+                        <h3 class="portfolio-card__headline">Marketing Page</h3>
+                        <p class="portfolio-card__text" >This project shows the front page of a marketing website meant for a specific business I'm interested in.</p>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="images/portfolio-2.png" alt="Preview Image of the Search Page" class="portfolio-card__img">
+                        <h3 class="portfolio-card__headline">Search Page</h3>
+                        <p class="portfolio-card__text">This project searches through a specific database to find information that the user is trying to look up.</p>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="images/portfolio-3.png" alt="Preview Image of the Travel App" class="portfolio-card__img">
+                        <h3 class="portfolio-card__headline">Travel App</h3>
+                        <p class="portfolio-card__text">This project compares travel times based on different transportation methods and tells you the best one.</p>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="images/portfolio-4.png" alt="Preview Image of Maps of Favorite Spots Site" class="portfolio-card__img">
+                        <h3>Maps of Favorite Spots</h3>
+                        <p class="portfolio-card__text">This project uses mapping apis to plot points for my favorite spots in the city for a do-it-yourself walking tour.</p>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="images/portfolio-5.png" alt="Preview Image of Photo Gallery Site" class="portfolio-card__img">
+                        <h3 class="portfolio-card__headline">Photo Gallery</h3>
+                        <p class="portfolio-card__text">This project shows pictures from a recent trip to the viewer and allows them to easily navigate through photos.</p>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="images/portfolio-6.png" alt="Preview Image of Calculator App" class="portfolio-card__img">
+                        <h3 class="portfolio-card__headline">Calculator</h3>
+                        <p class="portfolio-card__text">Someone can enter in the numbers they want, and press the big blue button and get the result.</p>
+                    </div>
+                </div>
+            </section><!-- end Portfolio Section -->
+            <section id="skills">
+                <h2 class="skills__headline">Skills & Education</h2>
+                <h3 class="skills__headline-topic">Versed in:</h3>
+                <ul class="skills__list--skills">
+                    <li class="skills__item"><strong>|</strong>&nbsp;HTML5</li>
+                    <li class="skills__item"><strong>|</strong>&nbsp;CSS3 & SASS</li>
+                    <li class="skills__item"><strong>|</strong>&nbsp;Javascript</li>
+                    <li class="skills__item"><strong>|</strong>&nbsp;PHP</li>
+                    <li class="skills__item"><strong>|</strong>&nbsp;MySQL</li>
+                </ul>
+                <h3 class="skills__headline-topic">Education & Certification</h3>
+                <ul class="skills__list">
+                    <li class="skills__item"><strong>|</strong>&nbsp;Treehouse Techdegree - Front-End WD</li>
+                    <li class="skills__item"><strong>|</strong>&nbsp;Missing Manual: CSS3</li>
+                    <li class="skills__item"><strong>|</strong>&nbsp;Missing Manual: Javascript & jQuery</li>
+                    <li class="skills__item"><strong>|</strong>&nbsp;Cookbook: PHP & MySQL</li>
+                </ul>
+            </section>
         </main>
+        <footer><!-- Footer Containing a Contact Section and Bottom Nav, wrapped in one background color. -->
+            <div class="container">
+                <section id="contact"><!-- Basic contact statement and information -->
+                    <h2 class="contact__headline">Contact</h2>
+                    <p class="contact__statement">If you're interested in chatting or want more information about what I've been working on, I'd love to here from you!</p>
+                    <ul class="contact-list">
+                        <li class="contact-list__info">
+                            <span class="contact-list__title">Phone</span>&nbsp;<a href="tel:1-111-555-1234" class="contact-list__link">+1&nbsp;(111)&nbsp;555-1234</a></li>
+                        <li class="contact-list__info">
+                            <span class="contact-list__title">Email</span>&nbsp;<a href="mailto:email@yoursite.com" class="contact-list__link">email@yoursite.com</a></li>
+                    </ul>
+                </section> <!-- End Contact section -->
+                <div class="bottom-header clearfix">
+                    <span class="bottom-header__title">Tyler Pfledderer</span>
+                    <span class="bottom-header__to-top"><a href="#" class="bottom-header__to-top--link">Back to Top</a></span><!-- This only appears when screen size is less than 768px -->
+                    <nav class="footer-nav"><!-- This does not appear when screen size is less than 768px -->
+                        <ul class="footer-nav__list">
+                            <li class="footer-nav__item"><a href="#" class="footer-nav__link">Home</a></li>
+                            <li class="footer-nav__item"><a href="#portfolio" class="footer-nav__link">Portfolio</a></li>
+                            <li class="footer-nav__item"><a href="#skills" class="footer-nav__link">Skills</a></li>
+                            <li class="footer-nav__item"><a href="#contact" class="footer-nav__link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div> <!-- End .bottom-header -->
+            </div><!-- End Container -->
+        </footer>
+
     </body>
 </html>
