@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Raleway&display=swap');
 
 /* General and Group Selectors */
@@ -5,7 +12,7 @@
 body {
     font-family: Raleway, Helvetica, Arial, sans-serif;
     font-size: 1em;
-    background-color: #eeeeee;
+    background-color: #eee;
 }
 
 h1,
@@ -39,6 +46,10 @@ h3 {
     font-weight: 700;
 }
 
+p {
+    line-height: 1.7;
+}
+
 a {
     text-decoration: none;
     color: #eee;
@@ -48,16 +59,11 @@ a:hover {
     color: slategrey;
 }
 
-.main-nav__link,
-.footer-nav__link {
-    font-weight: bold;
-}
-
 .container {
     padding: 0 20px;
     text-align: center;
-    max-width: 500px; /* For screen sizes less than 768px. Turn off in the next media query. */
     margin: 0 auto;
+    max-width: 1024px;
 }
 
 header,
@@ -71,11 +77,11 @@ footer {
 -------------------------------*/
 
 header {
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 }
 
 .main-nav {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 .main-nav__title {
@@ -106,7 +112,6 @@ header {
 
 .intro-p {
     font-size: 1.2em;
-    line-height: 1.5;
 }
 
 /*-------------------------------
@@ -115,16 +120,23 @@ header {
 
 /* Portfolio Section */
 
+.portfolio__card {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 .portfolio__headline {
     margin: 40px 0;
 }
 
-.portfolio-card__img {
+.portfolio__img {
     width: 100%;
 }
 
-.portfolio-card__text {
+.portfolio__text {
     margin-bottom: 2em;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /* Skills Section */
@@ -137,8 +149,14 @@ header {
     margin: 0 auto;
     width: 100%;
     padding-bottom: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    text-align: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .skills__item {
@@ -155,27 +173,40 @@ header {
 -------------------------------*/
 
 footer {
-    padding-top: 20px;
+    padding-top: 40px;
 }
 
 .contact__headline {
     margin-top: 0;
 }
 
+.contact__statement {
+    line-height: 1.7;
+    max-width: 450px;
+    margin: 0 auto 30px;
+}
+
 .contact-list__info:first-of-type {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .contact-list__link {
-    font-weight: bold;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     letter-spacing: 1px;
+    padding: 10px;
+    display: inline-block;
 }
 
 .bottom-header {
     border-top: 2px solid #eee;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     padding: 15px 0 10px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .bottom-header__title,
@@ -190,15 +221,11 @@ footer {
 }
 
 .bottom-header__title {
-    float: left;
-    font-weight: bold;
     padding-left: 10px;
     letter-spacing: 1px;
 }
 
 .bottom-header__to-top {
-    float: right;
-    font-weight: 900;
     text-transform: uppercase;
     margin: 10px 0; /* Meets with the nesting <a>'s padding Top/Bottom to stay in line with the .title-footer */
 }
@@ -207,10 +234,12 @@ footer {
     display: none; /* Applied only for mobile devices, with the "Back to Top" link displaying instead on larger screens */
 }
 
-.clearfix::after {
-    content: '';
-    display: table;
-    clear: both;
+/*-------------------------------
+-------- DRY CSS - Base ---------
+-------------------------------*/
+
+.bold {
+    font-weight: bold;
 }
 
 /*-------------------------------
@@ -227,55 +256,75 @@ footer {
         padding: 0;
         margin: 0 auto;
     }
-    
+
     header {
         padding-top: 20px;
     }
 
+    header .container {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .main-nav {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
     .main-nav__item {
         background: none;
-        display: inline-block;
     }
 
     .profile-img {
-        float: right;
-        margin-top: 16px; /* Line up with .intro-p's default margin */
+
+        /* For the following two properties, keep the image from getting squished by the .intro-p's updating text wrap 
+        (around 880px screen width) and keep it vertically centered */
+        height: 100%;
+        margin: auto;
+
         width: 40%;
         max-width: none;
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+        order: 2;
     }
 
     .intro-p {
-        float: left;
         font-size: 1.2em;
-        line-height: 2;
-        padding-right: 20px;
         text-align: left;
+        padding-right: 20px;
         width: 60%;
+        -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+        order: 1;
     }
-    
-    .portfolio-flex {
-        display: flex;
+
+    .portfolio__group {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-        justify-content: space-between;
     }
-    
-    .portfolio-card {
+
+    .portfolio__card {
+        -ms-flex-preferred-size: 50%;
         flex-basis: 50%;
-        display: inline-block;
         padding: 0 5px;
     }
 
     .bottom-header__to-top {
-        display: none; /* Only shown in Mobile Device Sizes */
+        display: none; /* Only show in Mobile Device Sizes */
     }
 
     .footer-nav {
-        display: block;
-        float: right;
+        display: block; /* Bring back from 'hidden' */
     }
 
     .footer-nav__item {
-        display: inline-block;
         padding: 10px 0;
     }
 
@@ -283,25 +332,43 @@ footer {
         padding: 10px 15px; /* Provide space to better select the link on touch screens */
     }
 
+
+    /*-------------------------------
+    -------- DRY CSS - Base ---------
+    -------------------------------*/
+
+    .flex {    /* Set flex box to elements prior to screen adjusting to 768px or larger */
+        display: -webkit- box;
+        display: -ms- flex;
+        display: flex;
+    }
+    
+    .inline-block { /* Can only tag to those that need once screen gets larger than 767px */
+        display: inline-block;
+    }
+
 }
 
 /* Styling for screen sizes 1024px and up (Desktop) */
 @media (min-width: 1024px) {
 
-    .container {
-        width: 80%;
-        max-width: 1024px;
-    }
-
-    .main-nav__title {
-        float: left;
-    }
-
-    .main-nav__list {
-        float: right;
+    .main-nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
     }
     
-    .portfolio-card {
+    .main-nav__item:last-of-type {
+        /* Make the last nav link show flush with the container on desktop screens and "align right" with the profile image */
+        margin-right: -15px;
+    }
+    
+    .profile-img {
+        margin-top: 20px;
+    }
+
+    .portfolio__card {
+        -ms-flex-preferred-size: 33%;
         flex-basis: 33%;
     }
 
